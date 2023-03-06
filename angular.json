@@ -3,5 +3,36 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "core-labs-ui-lib": {
+      "projectType": "library",
+      "root": "projects/core-labs-ui-lib",
+      "sourceRoot": "projects/core-labs-ui-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/core-labs-ui-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/core-labs-ui-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/core-labs-ui-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/core-labs-ui-lib/src/test.ts",
+            "tsConfig": "projects/core-labs-ui-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/core-labs-ui-lib/karma.conf.js"
+          }
+        }
+      }
+    }
   }
 }
